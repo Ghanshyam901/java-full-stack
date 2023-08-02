@@ -1,0 +1,74 @@
+<div>
+    <h2>Employee Table</h2>
+
+    
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Employee Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>email</th>  
+                 <th>Action</th>
+                 <!-- <th>update</th> -->
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employee">
+                <td>{{emp.id}}</td>
+                <td>{{emp.firstName}}</td>
+                <td>{{emp.lastName}}</td>
+                <td>{{emp.email}}</td>
+             <td>
+                <button (click)="delEmp(emp.id)" class="btn btn-danger btn-md">Delete</button>
+                <button  (click)="updateEmp(emp.id)" class="btn btn-danger btn-md">update</button>
+            </td>
+           
+                
+        </tbody>
+    </table>
+
+    <form *ngIf="searchEmpid"(submit)="updateEmployee()" style="width: 50vw; margin: auto; margin-bottom: 10px; font-size: 14px;">
+       
+        <h2 style="text-align: center;">Update employee</h2>
+        <!-- <label>id</label>
+        <input [(ngModel)]="searchEmpid.id" name="id" type="text" class="form-control"><br> -->
+        <label>firstName:</label>
+        <input [(ngModel)]="searchEmpid.firstName" name="firstName" type="text" class="form-control"><br>
+
+        <label>lastName:</label>
+        <input [(ngModel)]="searchEmpid.lastName" name="lastName" type="text" class="form-control"><br>
+
+        <label>email</label>
+        <input [(ngModel)]="searchEmpid.email" name="email" type="text" class="form-control"><br>
+
+        <button type="submit" class="btn btn-primary btn-md" style="padding: 8px;">Update Employee</button>
+
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>search employee</h1>
+    
+    <form #loginForm="ngForm" (ngSubmit)="searchemp(loginForm.value)">
+
+        Enter Id: <input  type="text" placeholder="login id" #id="ngModel" name="id" ngModel /><br><br>
+        
+        <input class="btnn" type="submit" value="search">
+    </form>
+    
+    </div>
+    

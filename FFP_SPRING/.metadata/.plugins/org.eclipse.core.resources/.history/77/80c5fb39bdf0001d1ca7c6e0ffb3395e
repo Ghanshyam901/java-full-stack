@@ -1,0 +1,54 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.example.demo.entity.Registration;
+import com.example.demo.service.Service_implementation;
+
+@RestController
+@RequestMapping("/api")
+public class HealthCare {
+	
+	private Service_implementation serviceImp;
+
+	@Autowired
+	public HealthCare(Service_implementation serviceImp) {
+		this.serviceImp = serviceImp;
+	}
+	
+	@PostMapping("/register")
+	public void addUser(@RequestBody Registration user) {
+		
+		serviceImp.addUser(user);
+		
+	}
+	
+	@GetMapping("/users")
+	public List<Registration> getAllData(){
+		return serviceImp.getAllUsers();
+	}
+	
+//	@GetMapping("admins/{id}")
+//	public List<User_Registration> showAllAdmins(@PathVariable("id") String firstName){
+//		return serviceImp.getAdmins(firstName);
+//	}
+//	
+	@GetMapping("users/{id}")
+	public Registration getyId(@PathVariable("id") int id) {
+		return serviceImp.getUser(id);
+	}
+	
+	
+	
+	
+}

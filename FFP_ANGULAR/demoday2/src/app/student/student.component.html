@@ -1,0 +1,33 @@
+<div>
+    <h2>Student Table</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Student Id</th>
+                <th>Student Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Mobile number</th>
+                <th>Country</th>
+                <th>Email</th>
+                <th>age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of student">
+                <td>{{std.id}}</td>
+                <td>{{std.name | uppercase}}</td>
+                <td>{{std.dob}}</td>
+                <td>{{std.gender}}</td>
+                <td>{{std.mobile | genccode:std.country}}</td>
+                <td>{{std.country}}</td>
+                <td>{{std.email | lowercase}}</td>
+                <td>{{std.dob | getage}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    </div>
+    

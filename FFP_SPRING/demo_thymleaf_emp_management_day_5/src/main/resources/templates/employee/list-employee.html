@@ -1,0 +1,57 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<title>Employee Management System</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+  
+  
+  
+<div class="container">
+
+<h1>Employee Management System</h1>
+	<br>
+	<br>
+    <a th:href="@{/employees/showFormForAdd}" class="btn btn-primary btn-md">Add employee</a>
+	<br>
+	<br>
+ <table class="table table-bordered table-stripped table-condensed table-hover">
+ 	
+ 	<thead>
+ 		
+ 		<tr class="bg-primary">
+ 		
+ 		<th>ID</th>
+ 		<th>FIRST NAME</th>
+ 		<th>LAST NAME</th>
+ 		<th>EMAIL</th>
+ 		<th>Action</th>
+ 		</tr>
+ 		
+ 	</thead>
+ 	<tbody class="bg-info">
+ 	   <tr th:each="emp:${EMPLOYEES}">
+ 		<td th:text="${emp.id}" ></td>
+ 		<td th:text="${emp.firstName}"></td>
+ 		<td th:text="${emp.lastName}"></td>
+ 		<td th:text="${emp.email}"></td>
+ 		
+ 		<td>
+				<a th:href="@{/employees/showFormForUpdate(employeeId=${emp.id})}" 
+				class="btn btn-success btn-md" role="button">Update</a>
+				
+				 <a th:href="@{/employees/delete(employeeId=${emp.id})}"  
+				 class="btn btn-danger btn-md" role="button">Delete</a> 
+				  
+				</td>
+ 		
+ 	</tbody>
+ </table>
+</div>
+
+</body>
+</html>

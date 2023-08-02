@@ -1,0 +1,15 @@
+<p>cart works!</p>
+<h3 align="center"><button (click)="showCartItems()"> Show Cart Items </button></h3>
+<h2 style="text-align: center">Selected Items {{cartItems.length}}</h2>
+<div>
+<table border=4 align="center">
+<tr><th>ID</th><th>NAME</th><th>DESCRIPTION</th><th>PRICE</th></tr>
+<tr *ngFor="let item of cartItems">
+<td>{{item.id}}</td>
+<td>{{item.name | uppercase}}</td>
+<td>{{item.description}}</td>
+<td>{{item.price |currency: 'INR'}}</td>
+</tr>
+</table>
+</div>
+

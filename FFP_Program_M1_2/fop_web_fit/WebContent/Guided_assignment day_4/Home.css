@@ -1,0 +1,87 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	
+}
+header{
+	padding-top:5%;
+	background-color:green;
+}
+
+footer{
+	
+	margin-bottom:2%;
+	background-color:green;
+}
+.login{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.heading{
+	
+	font-size:25px
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.imgc{
+	width: 460px;
+        height: 328px; 
+  
+}
+
+.login{
+	
+	margin-left:50px;
+	margin-right:50px;
+	justify-content:center;
+}
+.inputb{
+	width:81%;
+	margin-top:2%;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+.inputc{
+	width:40%;
+	margin-top:2%;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+
+.inputd{
+	width:37%;
+	margin-top:2%;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+
+.cont1{
+	width:100%;
+	padding-bottom:10%
+}
+.cont2{
+	width:100%;
+}
+
+.button{
+margin-left:30%
+ 
+}
+

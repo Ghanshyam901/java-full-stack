@@ -1,0 +1,36 @@
+
+
+<p>login page!</p>
+<form #loginForm="ngForm" (ngSubmit)="loginDetails(loginForm.value)" novalidate>
+
+<div *ngIf="id.errors?.['required'] && id.touched ">Pls enter id</div><br>
+<div *ngIf="id.errors?.['minlength'] && id.touched">pls enter atleast 1 digit and maximum length of id is 3</div>
+id:<input type="text" placeholder="enter name" #id="ngModel" name="id" ngModel
+ /><br><br>
+
+ <div *ngIf="password.errors?.['required'] && password.touched ">Pls enter password</div><br>
+ <div *ngIf="password.errors?.['minlength'] && password.touched">pls enter atleast 5 characters and 
+    maximum  length of password is 8</div>
+
+Password:<input type="password" #password="ngModel" name="password" placeholder="enter password" ngModel 
+/>
+<br><br>
+<input type="submit" value="Login">
+</form>
+
+<!-- 
+ <div class="row">
+               <div class="col-12" style="text-align: center;">
+                                    <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)" 
+                                          class="form-signin">
+                                    <h2 class="form-signin-heading">Please sign in</h2>
+                                    <label for="inputEmail" class="sr-only">Email address</label>
+                                    <input type="text" id="username" class="form-control" 
+                                          formControlName="userName" placeholder="Username" required autofocus>
+                                    <label for="inputPassword" class="sr-only">Password</label>
+                                    <input type="password" id="inputPassword" class="form-control" 
+                                          formControlName="password" placeholder="Password" required>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                                    </form>
+               </div>
+            </div>  -->

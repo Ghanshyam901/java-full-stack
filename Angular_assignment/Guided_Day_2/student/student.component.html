@@ -1,0 +1,31 @@
+
+<div>
+
+    <h1>Student table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Id</th>
+                <th>Student Name</th>
+                <th>Date of Birth</th>
+                <th>Course</th>
+                <th>fees</th>
+                <th>age</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of student">
+                <td>{{std.Sid}}</td>
+                <td>{{std.Sname }}</td>
+                <td>{{std.dob}}</td>
+                <td>{{std.course}}</td>
+                <td>{{std.fees}}</td>
+                <td>{{std.dob | agecal}}</td>
+
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

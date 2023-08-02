@@ -1,0 +1,340 @@
+package com.example.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entity.Appointment;
+import com.example.demo.entity.Diet;
+import com.example.demo.entity.Doctor;
+import com.example.demo.entity.Exercise;
+import com.example.demo.entity.Lab_Test;
+import com.example.demo.entity.Medicine;
+import com.example.demo.entity.Registration;
+import com.example.demo.entity.Trainer;
+import com.example.demo.service.Service_implementation;
+
+@RestController
+@RequestMapping("/api")
+public class HealthCare {
+	
+	private Service_implementation serviceImp;
+
+	@Autowired
+	public HealthCare(Service_implementation serviceImp) {
+		this.serviceImp = serviceImp;
+	}
+	
+	@PostMapping("/register")
+	public void addUser(@RequestBody Registration user) {
+		
+		serviceImp.addUser(user);
+		
+	}
+	
+	@GetMapping("/users")
+	public List<Registration> getAllData(){
+		return serviceImp.getAllUsers();
+	}
+	
+	@GetMapping("admins/{id}")
+	public List<Registration> showAllAdmins(@PathVariable("id") boolean is_admin){
+		return serviceImp.getAdmins(is_admin);
+	}
+//	
+	@GetMapping("users/{id}")
+	public Registration getyId(@PathVariable("id") int id) {
+		return serviceImp.getUser(id);
+	}
+		
+
+	
+	////ath...
+	
+	
+	@GetMapping("/trainer")
+	public List<Trainer> displayAllTrainer()   {
+		List<Trainer> trainers = serviceImp.displayAlldataTrainer();
+		return trainers;
+		
+	}
+	@PostMapping("/trainer")
+	public void inserionTrainer(@RequestBody Trainer trn) {
+		trn.setId(0);
+		serviceImp.InsertTrainer(trn);
+	}
+	
+	
+	@GetMapping("/trainer/{trainerId}")    
+	public Trainer getTrainer(@PathVariable("trainerId") int id)
+	{	
+		return serviceImp.displayByIdTrainer(id);
+		
+	}
+	
+	@PutMapping("/trainer") 
+	public void updationtrainer(@RequestBody Trainer trn)
+	{
+		serviceImp.updateTrainer(trn);
+	}
+	@DeleteMapping("/trainer/{trainerId}")
+	public void deleteTrainerBasedOnId(@PathVariable("trainerId") int id)
+	{
+		serviceImp.deleteTrainerById(id);
+		
+	}
+	
+	@GetMapping("trainer/speciality/{speciality}")
+	public List<Trainer> getTrainerByspeciality(@PathVariable("speciality") String speciality) 
+	
+	{
+		return serviceImp.getTrainerBySpeciality(speciality);
+	}
+	
+	
+	@GetMapping("/diet")
+	public List<Diet> displayAllDiet()   {
+		List<Diet> diets = serviceImp.displayAlldataDiet();
+		return diets;
+		
+	}
+	@PostMapping("/diet")
+	public void inserionDiet(@RequestBody Diet det) {
+		det.setId(0);
+		serviceImp.InsertDiet(det);
+	}
+	
+	
+	@GetMapping("/diet/{dietId}")    
+	public Diet getDiet(@PathVariable("dietId") int id)
+	{	
+		return serviceImp.displayByIdDiet(id);
+		
+	}
+	
+	@PutMapping("/diet") 
+	public void updationDiet(@RequestBody Diet det)
+	{
+		serviceImp.updateDiet(det);
+	}
+	
+	@DeleteMapping("/diet/{dietId}")
+	public void deleteDietBasedOnId(@PathVariable("dietId") int id)
+	{
+		serviceImp.deleteDietById(id);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/exercise")
+	public List<Exercise> displayAllExercise()   {
+		List<Exercise> exes = serviceImp.displayAlldataExercise();
+		return exes;
+		
+	}
+	@PostMapping("/exercise")
+	public void inserionExercise(@RequestBody Exercise exe) {
+		exe.setId(0);
+		serviceImp.InsertExercise(exe);
+	}
+	
+	
+	@GetMapping("/exercise/{exerciseId}")    
+	public Exercise getExercise(@PathVariable("exerciseId") int id)
+	{	
+		return serviceImp.displayByIdExercise(id);
+		
+	}
+	
+	@PutMapping("/exercise") 
+	public void updationExercise(@RequestBody Exercise exe)
+	{
+		serviceImp.updateExercise(exe);
+	}
+	
+	@DeleteMapping("/exercise/{exerciseId}")
+	public void deleteExerciseBasedOnId(@PathVariable("exerciseId") int id)
+	{
+		serviceImp.deleteExerciseById(id);
+		
+	}
+	
+	///ayush 
+	
+	@GetMapping("doctor/list")    //localhost:8080/healthcare/list
+	public List<Medicine> displayAllMedicine()
+	{
+		List<Medicine> medicine=serviceImp.displayAllMedicines();
+		return medicine;
+	}
+	
+	@PutMapping("doctor/list") //localhost:8080/healthcare/list
+	public void updationMedicine(@RequestBody Medicine medicine)
+	{
+		serviceImp.updationMedicine(medicine);	
+	}
+	
+	@PostMapping("doctor/list") //localhost:8080/healthcare/list
+	public void insertionMedicine(@RequestBody Medicine medicine)
+	{
+		medicine.setId(0);
+		serviceImp.insertionMedicine(medicine);
+	}
+	
+	
+	@DeleteMapping("doctor/delete/{id}") //localhost:8080/healthcare/delete/{id}
+	public void deletionMedicine(@PathVariable("id") int id) {
+		serviceImp.deletionMedicine(id);
+	}
+	
+	@GetMapping("doctor/list2/{medicine_name}")    //localhost:8080/healthcare/list2/{course}
+	public List<Medicine> displayByMedicineName(@PathVariable("medicine_name") String medicine_name)
+	{
+		List<Medicine> med=serviceImp.displayByMedicineName(medicine_name);
+		if(med==null)
+		{
+			throw new RuntimeException("Medicine not found with the given list");
+		}
+		return med;
+	}
+	
+	
+	@GetMapping("doctor/appointment")    //localhost:8080/healthcare/appointment
+	public List<Appointment> displayAllAppoinments()
+	{
+		List<Appointment> appointment=serviceImp.displayAllAppointments();
+		return appointment;
+	}
+	
+	@PutMapping("doctor/appointment") //localhost:8080/healthcare/appointment
+	public void updationAppointment(@RequestBody Appointment appointment)
+	{
+		serviceImp.updationAppointment(appointment);	
+	}
+	
+	@PostMapping("doctor/appointment") //localhost:8080/healthcare/appointment
+	public void insertionAppointment(@RequestBody Appointment appointment)
+	{
+		appointment.setId(0);
+		serviceImp.insertionAppointment(appointment);
+	}
+	
+	@DeleteMapping("doctor/appointmentdelete/{id}") //localhost:8080/healthcare/delete/{id}
+	public void deletionAppointment(@PathVariable("id") int id) {
+		serviceImp.deletionAppointment(id);
+	}
+	
+	@GetMapping("doctor/appointment1/{name}")    //localhost:8080/healthcare/appointment1/{name}
+	public List<Appointment> displayByName(@PathVariable("name") String name)
+	{
+		List<Appointment> med=serviceImp.displayByName(name);
+		if(med==null)
+		{
+			throw new RuntimeException("Appointment not found with the given list");
+		}
+		return med;
+	}
+	
+	@GetMapping("doctor/doctors") //localhost:8080/healthcare/doctor
+	public List<Doctor> displayAllDoctor()   {
+		List<Doctor> doctors = serviceImp.displayAlldataDoctor();
+		return doctors;
+		
+	}
+	@PostMapping("doctor/doctors") //localhost:8080/healthcare/doctor
+	public void inserionDoctor(@RequestBody Doctor doc) {
+		doc.setId(0);
+		serviceImp.InsertDoctor(doc);
+	}
+	@GetMapping("doctor/doctors/{doctorId}")   //localhost:8080/healthcare/doctor/{id} 
+	public Doctor getDoctor(@PathVariable("doctorId") int id)
+	{
+		return serviceImp.displayByIdDoctor(id);
+		
+	}
+	
+	@PutMapping("doctor/doctors") //localhost:8080/healthcare/doctor
+	public void updationDoctor(@RequestBody Doctor doc)
+	{
+		serviceImp.updateDoctor(doc);
+	}
+	
+	@DeleteMapping("doctor/doctors/{DoctorId}") //localhost:8080/healthcare/doctor/{doctorId}
+	public void deleteDoctorBasedOnId(@PathVariable("DoctorId") int id)
+	{
+		serviceImp.deleteDoctorById(id);
+		
+	}
+	
+	@GetMapping("doctor/doctors/speciality/{speciality}") //localhost:8080/healthcare/doctor/speciality/{s}
+	public List<Doctor> getDoctorByspeciality(@PathVariable("speciality") String speciality) 
+	
+	{
+		return serviceImp.getDoctorBySpeciality(speciality);
+	}
+	
+	
+	@GetMapping("doctor/labtest") //localhost:8080/healthcare/test
+	public List<Lab_Test> displayAllTest()   {
+		List<Lab_Test> tests = serviceImp.displayAlldataTest();
+		return tests;
+		
+	}
+	
+	@PostMapping("doctor/labtest") //localhost:8080/healthcare/test
+	public void inserionTest(@RequestBody Lab_Test test) {
+		test.setId(0);
+		serviceImp.InsertTest(test);
+	}
+	
+	@PutMapping("doctor/labtest") //localhost:8080/healthcare/test
+	public void updationTest(@RequestBody Lab_Test test)
+	{
+		serviceImp.updateTest(test);
+	}
+	
+	@DeleteMapping("doctor/labtest/{id}") //localhost:8080/healthcare/test/{id}
+	public void deleteTestBasedOnId(@PathVariable("id") int id)
+	{
+		serviceImp.deleteTestById(id);
+		
+	}
+	
+	@GetMapping("doctor/labtest1/{test_name}") //localhost:8080/healthcare/test/test_name/{t}
+	public List<Lab_Test> getTestByName(@PathVariable("test_name") String test_name) 
+	
+	{
+		return serviceImp.getTestByTestName(test_name);
+	}
+	
+	@GetMapping("diet/dietType/{diet_types}")
+	public List<Diet> getDietByDiet_types(@PathVariable("diet_types") String diet_types) 
+	
+	{
+		return serviceImp.searchDietByTypes(diet_types);
+	}
+	
+	@GetMapping("exercise/workoutTypes/{workout_types}")
+	public List<Exercise> getWorkoutByTypes(@PathVariable("workout_types") String workout_types) 
+	
+	{
+		return serviceImp.searchExerciseByWorkoutTypes(workout_types);
+	}
+	
+	
+	
+}

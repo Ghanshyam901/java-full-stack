@@ -1,0 +1,32 @@
+<div>
+    <form>
+    <label for="employeeId">Employee ID:</label>
+    <input type="text" id="employeeId" [(ngModel)]="employeeId" name="employeeId">
+    <button (click)="getEmployeeById()">Get Employee</button>
+</form>
+</div>
+
+  <div *ngIf="employee">
+    <h2 align="center">NPCI PVT. LTD.</h2>
+    <table>
+      <thead class="bg-primary">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Salary</th>
+        <th>Date of Joining</th>
+        <th>Login Id</th>
+      </tr>
+    </thead>
+        <tbody class="bg-info">
+        
+        <td>{{employee.id}}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.gender }}</td>
+        <td>{{ employee.salary | currency:'USD' }}</td>
+        <td>{{ employee.dateofjoining | date:"MM-dd-YYYY" }}</td>
+        <td>{{ employee.loginid }}</td>
+    </table>
+  </div>
+  

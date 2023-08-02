@@ -1,0 +1,83 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Registration;
+import com.example.demo.persistance.RegistrationJpa;
+
+@Service
+public class Service_implementation implements Service_deceleration {
+
+	
+	private RegistrationJpa regService;
+	
+	
+	
+	@Autowired
+	public Service_implementation(RegistrationJpa regService) {
+		
+		this.regService = regService;
+	}
+
+	@Override
+	@Transactional
+	public void addUser(Registration user) {
+		
+		if(dublicatEmail(user)) {
+			regService.save(user);
+		}
+		
+//		regService.save(user);
+		
+	}
+	
+	public boolean dublicatEmail(Registration user) {
+		
+		List<Registration> alluser = getAllUsers();
+		
+		for(Registration data : alluser) {
+			if(data.getEmail().equals(user.getEmail())) {
+				System.out.print("dublicate email");
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+
+	@Override
+	public Registration getUser(int id) {
+		
+		
+		return regService.findById(id).get();
+	}
+
+	@Override
+	@Transactional
+	public List<Registration> getAllUsers() {
+		
+		List<Registration> list = regService.findAll();
+		return list;
+	}
+
+	@Override
+	public void updateDetails(Registration user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	@Transactional
+	public List<Registration> getAdmins(boolean dept_id) {
+		List<Registration> allAdmins = regService.getAdminDetails(dept_id);
+		return allAdmins;
+	}
+
+	
+
+}

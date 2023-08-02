@@ -1,0 +1,68 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.User_Registration;
+import com.example.demo.persistance.RegistrationJpa;
+
+@Service
+public class Service_implementation implements Service_deceleration {
+
+	
+	private RegistrationJpa regService;
+	
+	
+	
+	@Autowired
+	public Service_implementation(RegistrationJpa regService) {
+		
+		this.regService = regService;
+	}
+
+	@Override
+	@Transactional
+	public void addUser(User_Registration user) {
+		
+		
+		regService.save(user);
+		
+	}
+
+	@Override
+	public User_Registration getUser(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public List<User_Registration> getAllUsers() {
+		
+		List<User_Registration> list = regService.findAll();
+		return list;
+	}
+
+	@Override
+	public void updateDetails(User_Registration user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	@Transactional
+	public List<User_Registration> getAdmins(int id) {
+		List<User_Registration> allAdmins = regService.getAdminDetails(id);
+		return allAdmins;
+	}
+
+	@Override
+	public List<User_Registration> getAdmins() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

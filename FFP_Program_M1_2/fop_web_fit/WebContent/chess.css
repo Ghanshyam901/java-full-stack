@@ -1,0 +1,36 @@
+@CHARSET "ISO-8859-1";
+
+body {
+    background: #e8e7de;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .chessboard {
+      width: 640px;
+      height: 640px;
+      margin: 20px;
+      border: 10px solid grey;
+      border-radius: 4px;
+  background: #e59110;
+  box-shadow:  5px 5px 8px #bebdb6,
+               -5px -5px 8px #ffffff;
+  }
+  .black {
+      float: left;
+      width: 80px;
+      height: 80px;
+      background-color: black;
+        font-size:50px;
+      text-align:center;
+      display: table-cell;
+      vertical-align:middle;
+  }
+  .white {
+      float: left;
+      width: 80px;
+      height: 80px;
+      background-color: white;
+      font-size:50px;
+      text-align:center;
+      display: table-cell;
+      vertical-align:middle;
+  }

@@ -1,0 +1,51 @@
+package com.example.demo.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Registration")
+public class User_Registration {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@Column(name="id")
+	private int id;
+	@Column(name="first_name")
+	private String firstName;
+	@Column(name="last_name")
+	private String lastName;
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="contact_number")
+	private long contact_number;
+	
+	@Column(name="is_admin")
+	private boolean is_admin=false;
+	
+	@Column(name="weight")
+	private int weight;
+	
+	@Column(name="height")
+	private float height;
+	
+	@Column(name="blood_group")
+	private String blood_group;
+	
+    @Column(name="password")
+    private String password;
+    
+    
+	
+	
+	
+	
+	
+	
+}

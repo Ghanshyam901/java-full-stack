@@ -1,0 +1,30 @@
+<div>
+<h2>Employee Table</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Gender</th>
+            <th>Date of joining</th>
+            <th>Email Id</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employee">
+            <td>{{emp.EmpId}}</td>
+            <td>{{emp.empName}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.doj}}</td>
+            <td>{{emp.emailId}}</td>
+            <td>{{emp.password}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+</div>

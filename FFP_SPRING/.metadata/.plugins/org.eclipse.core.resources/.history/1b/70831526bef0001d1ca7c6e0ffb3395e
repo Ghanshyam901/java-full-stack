@@ -1,0 +1,15 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import com.example.demo.entity.Registration;
+
+public interface Service_deceleration {
+    
+	public void addUser(Registration user);
+	public Registration getUser(int id);
+	public List<Registration> getAllUsers();
+	public void updateDetails(Registration user);
+	public List<Registration> getAdmins(String firstName);
+	
+}

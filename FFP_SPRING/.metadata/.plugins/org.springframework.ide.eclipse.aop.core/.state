@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Guideda_Assignment_day_3"/>
+<aop-project name="HealthCare"/>
+<aop-project name="TakeHome_assignment_day_5"/>
+<aop-project name="Guided_Assignment_day_3"/>
+<aop-project name="Demo_day_2_spring_boot_2"/>
+<aop-project name="GuidedAssignment_day_3_project"/>
+<aop-project name="Guided_assignment_day_5_"/>
+<aop-project name="TakeHome_Assignment_day_4"/>
+<aop-project name="Guided_Assignment_day_2"/>
+<aop-project name="Guided_Assignment_day_4"/>
+<aop-project name="demo_thymleaf_emp_management_day_5"/>
+<aop-project name="Demo_day_2_spring_boot"/>
+<aop-project name="Demo_Employee_Management_system"/>
+<aop-project name="TakeHome_Assignment_day_3_hibernate"/>
+<aop-project name="Demo_jpa_class_demo"/>
+</aop-reference-model>

@@ -1,0 +1,343 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Appointment;
+import com.example.demo.entity.Diet;
+import com.example.demo.entity.Doctor;
+import com.example.demo.entity.Exercise;
+import com.example.demo.entity.Lab_Test;
+import com.example.demo.entity.Medicine;
+import com.example.demo.entity.Registration;
+import com.example.demo.entity.Trainer;
+import com.example.demo.persistance.AppointmentRepositoryJpa;
+import com.example.demo.persistance.DietRepository;
+
+import com.example.demo.persistance.DoctorRepositoryJpa;
+import com.example.demo.persistance.ExerciseRepository;
+import com.example.demo.persistance.LabTestRepositoryJpa;
+import com.example.demo.persistance.MedicineRepositoryJpa;
+import com.example.demo.persistance.RegistrationJpa;
+import com.example.demo.persistance.TrainerRepository;
+
+@Service
+public class Service_implementation implements Service_deceleration {
+
+    private RegistrationJpa regService;
+	private TrainerRepository trnr;
+	private ExerciseRepository exnr;
+	private DietRepository dinr;
+	
+	private MedicineRepositoryJpa proimp;
+	private AppointmentRepositoryJpa appimp;
+	private DoctorRepositoryJpa docimp;
+	private LabTestRepositoryJpa tesimp;
+
+   
+
+   
+	
+	
+	
+	public Service_implementation(RegistrationJpa regService, TrainerRepository trnr, ExerciseRepository exnr,
+			DietRepository dinr, MedicineRepositoryJpa proimp, AppointmentRepositoryJpa appimp,
+			DoctorRepositoryJpa docimp, LabTestRepositoryJpa tesimp) {
+		super();
+		this.regService = regService;
+		this.trnr = trnr;
+		this.exnr = exnr;
+		this.dinr = dinr;
+		this.proimp = proimp;
+		this.appimp = appimp;
+		this.docimp = docimp;
+		this.tesimp = tesimp;
+	}
+
+	@Override
+    @Transactional
+    public void addUser(Registration user) {
+        if (isEmailExists(user.getEmail())) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+        regService.save(user);
+    }
+	
+    @Transactional
+    private boolean isEmailExists(String email) {
+       
+        List<Registration> allUsers = getAllUsers();
+        return allUsers.stream().anyMatch(user -> email.equals(user.getEmail()));
+    }
+
+    @Override
+    @Transactional
+    public Registration getUser(int id) {
+        return regService.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public List<Registration> getAllUsers() {
+        return regService.findAll();
+    }
+
+    @Override
+    public void updateDetails(Registration user) {
+        // TODO: Implement the updateDetails method based on your requirements
+    }
+
+    @Override
+    @Transactional
+    public List<Registration> getAdmins(boolean is_admin) {
+        return regService.getAdminDetails(is_admin);
+    }
+    
+    
+    //// athrabha....
+    
+    
+  
+	
+
+
+	@Override
+	@Transactional
+	public List<Trainer> displayAlldataTrainer() {
+		return trnr.findAll();
+	}
+
+	@Override
+	@Transactional
+	public void InsertTrainer(Trainer trn) {
+		trnr.save(trn);
+		
+	}
+
+	@Override
+	@Transactional
+	public void updateTrainer(Trainer trn) {
+		trnr.save(trn);
+		
+	}
+
+	@Override
+	@Transactional
+	public void deleteTrainerById(int id) {
+		trnr.deleteById(id);
+		
+	}
+
+
+	@Override
+	@Transactional
+	public Trainer displayByIdTrainer(int id) {
+		return trnr.findById(id).get();
+	}
+
+	
+
+	@Override
+	@Transactional
+	public List<Trainer> getTrainerBySpeciality(String speciality) {
+		return trnr.searchTrainerBySpeciality(speciality);
+	}
+
+	@Override
+	public List<Exercise> displayAlldataExercise() {
+		return exnr.findAll();
+	}
+
+	@Override
+	public void InsertExercise(Exercise exe) {
+		exnr.save(exe);
+		
+	}
+
+	@Override
+	public void updateExercise(Exercise exe) {
+		exnr.save(exe);
+		
+	}
+
+	@Override
+	public Exercise displayByIdExercise(int id) {
+		return exnr.findById(id).get();
+	}
+
+	@Override
+	public void deleteExerciseById(int id) {
+		exnr.deleteById(id);
+		
+	}
+
+	@Override
+	public List<Diet> displayAlldataDiet() {
+		return dinr.findAll();
+	}
+
+	@Override
+	public void InsertDiet(Diet det) {
+		dinr.save(det);
+		
+	}
+
+	@Override
+	public void updateDiet(Diet det) {
+		dinr.save(det);
+		
+	}
+
+	@Override
+	public Diet displayByIdDiet(int id) {
+		return dinr.findById(id).get();
+	}
+
+	@Override
+	public void deleteDietById(int id) {
+		dinr.deleteById(id);
+		
+	}
+	
+	///ayush
+	
+	@Override
+	@Transactional
+	public List<Medicine> displayAllMedicines() {
+		return proimp.findAll();
+	}
+
+	@Override
+	@Transactional
+	public void updationMedicine(Medicine medicine) {
+		proimp.save(medicine);
+	}
+
+	@Override
+	@Transactional
+	public void insertionMedicine(Medicine medicine) {
+		proimp.save(medicine);
+	}
+
+	@Override
+	@Transactional
+	public List<Medicine> displayByMedicineName(String medicine_name) {
+		return proimp.displayByMedicineName(medicine_name);
+	}
+
+	@Override
+	@Transactional
+	public void deletionMedicine(int id) {
+		proimp.deleteById(id);
+	}
+
+	@Override
+	@Transactional
+	public List<Appointment> displayAllAppointments() {
+		return appimp.findAll();
+	}
+
+	@Override
+	@Transactional
+	public void updationAppointment(Appointment appointment) {
+		appimp.save(appointment);
+		
+	}
+
+	@Override
+	@Transactional
+	public void insertionAppointment(Appointment appointment) {
+		appimp.save(appointment);
+	}
+
+	@Override
+	@Transactional
+	public List<Appointment> displayByName(String name) {
+		return appimp.displayByName(name);
+	}
+
+	@Override
+	@Transactional
+	public void deletionAppointment(int id) {
+		appimp.deleteById(id);
+	}
+
+	@Override
+	@Transactional
+	public List<Doctor> displayAlldataDoctor() {
+		return docimp.findAll();
+	}
+
+	@Override
+	@Transactional
+	public void InsertDoctor(Doctor doc) {
+		docimp.save(doc);
+		
+	}
+
+	@Override
+	@Transactional
+	public void updateDoctor(Doctor doc) {
+		docimp.save(doc);
+		
+	}
+
+	@Override
+	@Transactional
+	public void deleteDoctorById(int id) {
+		docimp.deleteById(id);
+		
+	}
+
+	@Override
+	@Transactional
+	public Doctor displayByIdDoctor(int id) {
+		return docimp.findById(id).get();
+	}
+
+	@Override
+	@Transactional
+	public List<Doctor> getDoctorBySpeciality(String speciality) {
+		return docimp.searchDoctorBySpeciality(speciality);
+	}
+
+	@Override
+	@Transactional
+	public List<Lab_Test> displayAlldataTest() {
+		return tesimp.findAll();
+	}
+
+	@Override
+	@Transactional
+	public void InsertTest(Lab_Test test) {
+		tesimp.save(test);
+		
+	}
+
+	@Override
+	@Transactional
+	public void updateTest(Lab_Test test) {
+		tesimp.save(test);
+		
+	}
+
+	@Override
+	@Transactional
+	public void deleteTestById(int id) {
+		tesimp.deleteById(id);
+	}
+
+	@Override
+	@Transactional
+	public List<Lab_Test> getTestByTestName(String test_name) {
+		return tesimp.getTestByTestName(test_name);
+
+	}
+    
+    
+    
+
+}

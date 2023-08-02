@@ -1,0 +1,17 @@
+package com.example.demo.persistance;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+
+import com.example.demo.entity.Registration;
+
+public interface RegistrationJpa extends JpaRepository<Registration, Integer> {
+        
+	    @Query("from Registration where is_admin=?1")
+	    public List<Registration> getAdminDetails(int is_admin);
+	
+	
+}

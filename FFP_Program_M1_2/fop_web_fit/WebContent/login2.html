@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Form</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .signup-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .signup-form h1 {
+            text-align: center;
+            color: #000000;
+        }
+
+        .signup-form input[type="email"],
+        .signup-form input[type="password"],
+        .signup-form input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #f0f0f0;
+            color: #000000;
+        }
+
+        .signup-form input[type="email"]:focus,
+        .signup-form input[type="password"]:focus,
+        .signup-form input[type="checkbox"]:focus {
+            outline: none;
+            background-color: #e0e0e0;
+        }
+
+        .signup-form .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .signup-form .remember-me label {
+            margin-left: 5px;
+            color: #000000;
+        }
+
+        .signup-form .cancel-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .signup-form .signup-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #00ff00;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-form">
+        <h1>Signup</h1>
+        <form>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Repeat Password">
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember me</label>
+            </div>
+            <button type="button" class="cancel-btn">Cancel</button>
+            <button type="submit" class="signup-btn">Sign up</button>
+        </form>
+    </div>
+</body>
+</html>

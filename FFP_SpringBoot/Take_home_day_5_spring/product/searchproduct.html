@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<title>Product management</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+
+<h1>Product Management System</h1>
+	<br>
+	<br>
+	<a th:href="@{/product/list}">back into all product</a>
+	<br>
+	<br>
+	
+ <table class="table table-bordered table-stripped table-condensed table-hover">
+ 	
+ 	<thead>
+ 		
+ 		<tr class="bg-primary">
+ 		
+ 		<th>ID</th>
+ 		<th>NAME</th>
+ 		<th>price</th>
+ 		<th>Description</th>
+ 		<th>Action</th>
+ 		</tr>
+ 		
+ 	</thead>
+ 	<tbody class="bg-info">
+ 	   <tr th:each="pd:${PRODUCT}">
+ 		<td th:text="${pd.id}" ></td>
+ 		<td th:text="${pd.Name}"></td>
+ 		<td th:text="${pd.Price}"></td>
+ 		<td th:text="${pd.Description}"></td>
+ 		
+ 		<td>	
+ 			 
+ 		<button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#exampleModal">Delete</button>
+ 			
+ 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Product</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	       are you sure do you want to delete
+	      </div>
+	      
+	      
+	      
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+	        <a th:href="@{/product/delete(productId=${pd.id})}"class="btn btn-danger btn-md" role="button">Delete</a> 
+	      </div>
+	    </div>
+	    
+	    
+	  </div>
+	</div>	
+				
+		</td>
+ 		
+ 	</tbody>
+ </table>
+</div>
+ 
+
+
+</body>
+
+
+
+	
+
+</body>
+</html>

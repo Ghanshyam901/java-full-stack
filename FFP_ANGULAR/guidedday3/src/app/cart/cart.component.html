@@ -1,0 +1,29 @@
+<p>cart works!</p>
+<h3 alignitems="center"><button (click)="showCartItems()"> Show Cart Items </button></h3>
+<h2 style="text-align: center">Selected Items {{cartItems.length}}</h2>
+<div>
+    <table borderradius=4 alignitems="center">
+    <tr><th>ID</th><th>NAME</th><th>DESCRIPTION</th><th>PRICE</th></tr>
+    <tr *ngFor="let item of cartItems">
+    <td>{{item.id}}</td>
+    <td>{{item.name | uppercase}}</td>
+    <td>{{item.description}}</td>
+    <td>{{item.price |currency: 'INR'}}</td>
+    </tr>
+    </table>
+</div>
+
+<div class="container" > <!--card header card body card text-->
+    <div class="row-md-1" style="margin-top:20px">
+        <div class="col-md-2" *ngFor="let p of cartItems">
+            <div class="card-header" style="width:200px;height:50%">
+              <img src="{{p.imagePath}}" alignitems="center" alt="not found" style="width:100%;height:50%">
+              <div class="card-body" >
+                <p class="card-text">{{p.name}}</p>
+                <p class="card-text">{{p.description}}</p>
+                <p class="card-text">{{p.price | currency:"INR"}}</p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

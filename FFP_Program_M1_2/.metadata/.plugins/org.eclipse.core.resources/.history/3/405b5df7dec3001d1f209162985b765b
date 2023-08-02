@@ -1,0 +1,63 @@
+package Day4_guided_assignment;
+
+import java.util.Scanner;
+
+public class ConsecutiveElements {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scn = new Scanner(System.in);
+		System.out.print("Enter the size of array : ");
+		int n = scn.nextInt();
+		System.out.println("Enter the Target value : ");
+		int target  = scn.nextInt();
+		
+		System.out.print("Enter array value of " +n+ " size : ");
+		int [] arr = new int[n];
+		for(int i=0; i<n; i++){
+			arr[i] = scn.nextInt();
+		}
+		
+		boolean ans = containsConsecutiveElements(arr, target) 
+		
+	}public static boolean containsConsecutiveElements(int [] arr , int target){
+		
+		int ans = validateInputs(arr, target);
+		
+		if(ans == 1){
+			return true;
+		}
+		return false;
+		
+		
+		
+	}public static int validateInputs(int[] arr , int tar){
+		
+		if(arr.length == 0){
+			return -1;
+		}else if(tar <= 0){
+			return -3;
+		}
+		
+		
+		for(int i=0; i<arr.length; i++){
+			int sum =0;
+			if(arr[i] <= 0){
+				return -2;
+			}
+			for(int j =i; j<arr.length; j++){
+				
+				if(arr[j] <= 0) return -2;
+				
+				sum+=arr[j];
+				if(sum == tar){
+					return 1;
+				}
+			}
+		}
+		
+		return 1;
+	}
+	
+
+}

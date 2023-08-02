@@ -1,0 +1,29 @@
+.btnn{
+    background-color: #354bb6;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    margin-left: 30%;
+}
+.mid{
+    position: absolute;
+    width: 20%;
+    height: 40%;
+    /* z-index: 15; */
+    top: 40%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    padding: 1%;
+    background: rgb(17, 149, 122);
+    
+}
+input{
+    width: 55%;
+    padding: 2%;
+}
+h2{
+    color: rgb(21, 240, 105);
+}

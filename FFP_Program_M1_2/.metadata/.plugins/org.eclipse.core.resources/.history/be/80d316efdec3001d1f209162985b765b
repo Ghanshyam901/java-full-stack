@@ -1,0 +1,10 @@
+package Day4_guided_assignment;
+
+public class ConsecutiveElements {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

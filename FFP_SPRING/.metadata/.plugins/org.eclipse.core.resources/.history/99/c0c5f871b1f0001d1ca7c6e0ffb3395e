@@ -1,0 +1,37 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.example.demo.entity.User_Registration;
+import com.example.demo.service.Service_implementation;
+
+@Controller
+@RequestMapping("/api")
+public class HealthCare {
+	
+	private Service_implementation serviceImp;
+
+	@Autowired
+	public HealthCare(Service_implementation serviceImp) {
+		this.serviceImp = serviceImp;
+	}
+	
+	@PostMapping("register")
+	public void addUser(@RequestBody User_Registration user) {
+		
+		serviceImp.addUser(user);
+		
+	}
+	
+	
+	
+	
+	
+	
+}

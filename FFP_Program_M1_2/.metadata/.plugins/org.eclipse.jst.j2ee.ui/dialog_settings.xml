@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="J2EE_IMPORT_EJB">
+		<item value="C:\Program Files (x86)\MySQL\Connector J 8.0\mysql-connector-j-8.0.32.jar"/>
+	</list>
+	<list key="MRU_RUNTIME_STORE">
+		<item value="NULL_RUNTIME"/>
+		<item value="Apache Tomcat v9.0"/>
+	</list>
+</section>

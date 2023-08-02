@@ -1,0 +1,12 @@
+<div class="mid">
+
+    <h2>Login Page</h2>
+      <form #loginForm="ngForm" (ngSubmit)="loginDetails(loginForm.value)">
+
+    Login Id: <input  type="text" placeholder="login id" #id="ngModel" name="id" ngModel /><br><br>
+    Password: <input type="password" #password="ngModel" name="password" placeholder="enter password" ngModel />
+    <br><br>
+
+    <input class="btnn" type="submit" value="Login">
+</form>
+</div>

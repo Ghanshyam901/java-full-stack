@@ -1,0 +1,28 @@
+package guided_day_1;
+
+
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.Scanner;
+
+
+public class Main {
+   
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        String inputDate = sc.next();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        try {
+            LocalDate date = LocalDate.parse(inputDate, formatter);
+            String dayOfWeek = date.getDayOfWeek().toString();
+
+            System.out.println(dayOfWeek);
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid");
+        }
+    }
+}

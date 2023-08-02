@@ -1,0 +1,49 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import com.example.demo.entity.Diet;
+import com.example.demo.entity.Doctor;
+import com.example.demo.entity.Exercise;
+import com.example.demo.entity.Registration;
+import com.example.demo.entity.Trainer;
+
+public interface Service_deceleration {
+    
+	///reg
+	public void addUser(Registration user);
+	public Registration getUser(int id);
+	public List<Registration> getAllUsers();
+	public void updateDetails(Registration user);
+	public List<Registration> getAdmins(boolean is_admin);
+	
+	
+	public List<Doctor> displayAlldataDoctor();
+	public void InsertDoctor(Doctor doc);
+	public void updateDoctor(Doctor doc);
+	public Doctor  displayByIdDoctor(int id);
+	public void deleteDoctorById(int id);
+	public List<Doctor> getDoctorBySpeciality(String speciality);
+	
+	public List<Trainer> displayAlldataTrainer();
+	public void InsertTrainer(Trainer trn);
+	public void updateTrainer(Trainer trn);
+	public Trainer  displayByIdTrainer(int id);
+	public void deleteTrainerById(int id);
+	public List<Trainer> getTrainerBySpeciality(String speciality);
+	
+	
+	public List<Exercise> displayAlldataExercise();
+	public void InsertExercise(Exercise exe);
+	public void updateExercise(Exercise exe);
+	public Exercise  displayByIdExercise(int id);
+	public void deleteExerciseById(int id);
+	
+	public List<Diet> displayAlldataDiet();
+	public void InsertDiet(Diet det);
+	public void updateDiet(Diet det);
+	public Diet  displayByIdDiet(int id);
+	public void deleteDietById(int id);
+	
+	
+}

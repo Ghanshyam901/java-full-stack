@@ -1,0 +1,53 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.User_Registration;
+import com.example.demo.persistance.RegistrationJpa;
+
+@Service
+public class Service_implementation implements Service_deceleration {
+
+	
+	private RegistrationJpa regService;
+	
+	
+	
+	
+	public Service_implementation(RegistrationJpa regService) {
+		
+		this.regService = regService;
+	}
+
+	@Override
+	@Transactional
+	public void addUser(User_Registration user) {
+		
+		
+		regService.save(user);
+		
+	}
+
+	@Override
+	public User_Registration getUser(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User_Registration> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateDetails(User_Registration user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

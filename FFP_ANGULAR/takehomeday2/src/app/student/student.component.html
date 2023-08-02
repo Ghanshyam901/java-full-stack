@@ -1,0 +1,45 @@
+
+<div>
+
+    <h1>Student table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Id</th>
+                <th>Student Name</th>
+                <th>Date of Birth</th>
+                <th>Course</th>
+                <th>fees</th>
+                <th>age</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of student">
+                <td>{{std.Sid}}</td>
+                <td>{{std.Sname }}</td>
+                <td>{{std.dob}}</td>
+                <td>{{std.course}}</td>
+                <td>{{std.fees | currency:"INR"}}</td>
+                <td>{{std.dob }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form #regForm="ngForm" (ngSubmit)="registerDetails(regForm.value)" validate >
+
+        <div *ngIf="Sid.errors?.['required']&&Sid.touched">please enter id</div><br><br>
+        <div *ngIf="Sid.errors?.['minlength']&& Sid.touched">please enter id between 1 - 999</div>
+
+        id:<input  required minlength="1" maxlength="3"  type="text" placeholder="enter Id" name="Sid" [(ngModel)]="this.std5.Sid"  #Sid="ngModel" ngModel /><br><br>
+        Name:<input type="text" required placeholder="enter name" name="Sname" [(ngModel)]="this.std5.Sname" #Sname="ngModel" ngModel /><br><br>
+        Date of birth:<input required type="date" placeholder="enter dob" name="dob" [(ngModel)]="this.std5.dob" #dob="ngModel" ngModel /><br><br>
+        Course:<input type="text" required placeholder="enter course" name="course" [(ngModel)]="this.std5.course" #course="ngModel" ngModel/><br><br>
+        Fees:<input type="text" required placeholder="enter fees" name="fees" [(ngModel)]="this.std5.fees"  #fees="ngModel" ngModel/><br><br>
+        <input type="submit" required value="register student"/>
+
+
+    </form>
+
+
+</div>

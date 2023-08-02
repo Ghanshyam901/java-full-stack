@@ -1,0 +1,230 @@
+package com.example.demo.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+
+
+
+	
+
+@Entity
+@Table(name = "Appointment")
+public class Appointment {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "appointment_id")
+    private int appointmentId;
+
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Registration registration;
+
+    @ManyToOne
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Doctor doctor;
+    
+    @Column(name = "user_firstname")
+    private String userFirstname;
+
+    @Column(name = "user_lastname")
+    private String userLastname;
+
+    @Column(name = "doctor_firstname")
+    private String doctorFirstname;
+
+    @Column(name = "doctor_lastname")
+    private String doctorLastname;
+    
+    @Column(name = "doctor_speciality")
+    private String doctorSpeciality;
+    
+    @Column(name = "doctor_exp_years")
+    private int doctorExpYears;
+
+    @Column(name = "doctor_fees")
+    private double doctorFees;
+
+    @Column(name = "user_weight")
+    private int userWeight;
+
+    @Column(name = "user_height")
+    private float userHeight;
+
+    @Column(name = "user_blood_group")
+    private String userBloodGroup;
+
+    @Column(name = "user_email")
+    private String userEmail;
+    
+    @Column(name="user_contact")
+	private long userContact;
+    
+    @Column(name="date")
+   	private String Date;
+
+	public Appointment() {
+	
+	}
+
+	public Appointment(int appointmentId, int doctorId,int registrationId, String userFirstname,
+			String userLastname, String doctorFirstname, String doctorLastname, String doctorSpeciality,
+			int doctorExpYears, double doctorFees, int userWeight, float userHeight, String userBloodGroup,
+			String userEmail, long userContact, String date) {
+		super();
+		this.appointmentId = appointmentId;
+		this.doctor = new Doctor();
+		this.doctor.setId(doctor.getId());
+		this.registration = new Registration();
+		 this.registration.setId(registration.getId());
+		this.userFirstname = userFirstname;
+		this.userLastname = userLastname;
+		this.doctorFirstname = doctorFirstname;
+		this.doctorLastname = doctorLastname;
+		this.doctorSpeciality = doctorSpeciality;
+		this.doctorExpYears = doctorExpYears;
+		this.doctorFees = doctorFees;
+		this.userWeight = userWeight;
+		this.userHeight = userHeight;
+		this.userBloodGroup = userBloodGroup;
+		this.userEmail = userEmail;
+		this.userContact = userContact;
+		Date = date;
+	}
+
+	public int getAppointmentId() {
+		return appointmentId;
+	}
+
+	public void setAppointmentId(int appointmentId) {
+		this.appointmentId = appointmentId;
+	}
+
+	public int getDoctorId() {
+        return doctor.getId();
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctor.setId(doctorId);
+    }
+
+    public int getRegistrationId() {
+        return registration.getId();
+    }
+
+    public void setRegistrationId(int registrationId) {
+        this.registration.setId(registrationId);
+    }
+
+	public String getUserFirstname() {
+		return userFirstname;
+	}
+
+	public void setUserFirstname(String userFirstname) {
+		this.userFirstname = userFirstname;
+	}
+
+	public String getUserLastname() {
+		return userLastname;
+	}
+
+	public void setUserLastname(String userLastname) {
+		this.userLastname = userLastname;
+	}
+
+	public String getDoctorFirstname() {
+		return doctorFirstname;
+	}
+
+	public void setDoctorFirstname(String doctorFirstname) {
+		this.doctorFirstname = doctorFirstname;
+	}
+
+	public String getDoctorLastname() {
+		return doctorLastname;
+	}
+
+	public void setDoctorLastname(String doctorLastname) {
+		this.doctorLastname = doctorLastname;
+	}
+
+	public String getDoctorSpeciality() {
+		return doctorSpeciality;
+	}
+
+	public void setDoctorSpeciality(String doctorSpeciality) {
+		this.doctorSpeciality = doctorSpeciality;
+	}
+
+	public int getDoctorExpYears() {
+		return doctorExpYears;
+	}
+
+	public void setDoctorExpYears(int doctorExpYears) {
+		this.doctorExpYears = doctorExpYears;
+	}
+
+	public double getDoctorFees() {
+		return doctorFees;
+	}
+
+	public void setDoctorFees(double doctorFees) {
+		this.doctorFees = doctorFees;
+	}
+
+	public int getUserWeight() {
+		return userWeight;
+	}
+
+	public void setUserWeight(int userWeight) {
+		this.userWeight = userWeight;
+	}
+
+	public float getUserHeight() {
+		return userHeight;
+	}
+
+	public void setUserHeight(float userHeight) {
+		this.userHeight = userHeight;
+	}
+
+	public String getUserBloodGroup() {
+		return userBloodGroup;
+	}
+
+	public void setUserBloodGroup(String userBloodGroup) {
+		this.userBloodGroup = userBloodGroup;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public long getUserContact() {
+		return userContact;
+	}
+
+	public void setUserContact(long userContact) {
+		this.userContact = userContact;
+	}
+
+	public String getDate() {
+		return Date;
+	}
+
+	public void setDate(String date) {
+		Date = date;
+	}
+}

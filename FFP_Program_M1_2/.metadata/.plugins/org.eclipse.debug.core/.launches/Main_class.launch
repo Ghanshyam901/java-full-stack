@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/FUTURE_FIT_JDBC/src/day_1_jdbc_TakeHome_Assignment/Main_class.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="day_1_jdbc_TakeHome_Assignment.Main_class"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="FUTURE_FIT_JDBC"/>
+</launchConfiguration>

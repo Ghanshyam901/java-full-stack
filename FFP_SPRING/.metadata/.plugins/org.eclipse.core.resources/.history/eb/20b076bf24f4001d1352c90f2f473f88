@@ -1,0 +1,220 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Diet;
+import com.example.demo.entity.Doctor;
+import com.example.demo.entity.Exercise;
+import com.example.demo.entity.Registration;
+import com.example.demo.entity.Trainer;
+import com.example.demo.persistance.DietRepository;
+import com.example.demo.persistance.DoctorRepository;
+import com.example.demo.persistance.ExerciseRepository;
+import com.example.demo.persistance.RegistrationJpa;
+import com.example.demo.persistance.TrainerRepository;
+
+@Service
+public class Service_implementation implements Service_deceleration {
+
+    private RegistrationJpa regService;
+    private DoctorRepository docr;
+	private TrainerRepository trnr;
+	private ExerciseRepository exnr;
+	private DietRepository dinr;
+
+   
+
+    public Service_implementation(RegistrationJpa regService, DoctorRepository docr, TrainerRepository trnr,
+			ExerciseRepository exnr, DietRepository dinr) {
+		super();
+		this.regService = regService;
+		this.docr = docr;
+		this.trnr = trnr;
+		this.exnr = exnr;
+		this.dinr = dinr;
+	}
+	@Override
+    @Transactional
+    public void addUser(Registration user) {
+        if (isEmailExists(user.getEmail())) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+        regService.save(user);
+    }
+	
+    @Transactional
+    private boolean isEmailExists(String email) {
+       
+        List<Registration> allUsers = getAllUsers();
+        return allUsers.stream().anyMatch(user -> email.equals(user.getEmail()));
+    }
+
+    @Override
+    @Transactional
+    public Registration getUser(int id) {
+        return regService.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public List<Registration> getAllUsers() {
+        return regService.findAll();
+    }
+
+    @Override
+    public void updateDetails(Registration user) {
+        // TODO: Implement the updateDetails method based on your requirements
+    }
+
+    @Override
+    @Transactional
+    public List<Registration> getAdmins(boolean is_admin) {
+        return regService.getAdminDetails(is_admin);
+    }
+    
+    
+    //// athrabha....
+    
+    
+    @Override
+	@Transactional
+	public List<Doctor> displayAlldataDoctor() {
+		return docr.findAll();
+	}
+
+	@Override
+	@Transactional
+	public void InsertDoctor(Doctor doc) {
+		docr.save(doc);
+		
+	}
+
+	@Override
+	@Transactional
+	public void updateDoctor(Doctor doc) {
+		docr.save(doc);
+		
+	}
+
+	@Override
+	@Transactional
+	public void deleteDoctorById(int id) {
+		docr.deleteById(id);
+		
+	}
+
+	@Override
+	@Transactional
+	public List<Trainer> displayAlldataTrainer() {
+		return trnr.findAll();
+	}
+
+	@Override
+	@Transactional
+	public void InsertTrainer(Trainer trn) {
+		trnr.save(trn);
+		
+	}
+
+	@Override
+	@Transactional
+	public void updateTrainer(Trainer trn) {
+		trnr.save(trn);
+		
+	}
+
+	@Override
+	@Transactional
+	public void deleteTrainerById(int id) {
+		trnr.deleteById(id);
+		
+	}
+
+	@Override
+	@Transactional
+	public Doctor displayByIdDoctor(int id) {
+		return docr.findById(id).get();
+	}
+
+	@Override
+	@Transactional
+	public Trainer displayByIdTrainer(int id) {
+		return trnr.findById(id).get();
+	}
+
+	@Override
+	@Transactional
+	public List<Doctor> getDoctorBySpeciality(String speciality) {
+		return docr.searchDoctorBySpeciality(speciality);
+	}
+
+	@Override
+	@Transactional
+	public List<Trainer> getTrainerBySpeciality(String speciality) {
+		return trnr.searchTrainerBySpeciality(speciality);
+	}
+
+	@Override
+	public List<Exercise> displayAlldataExercise() {
+		return exnr.findAll();
+	}
+
+	@Override
+	public void InsertExercise(Exercise exe) {
+		exnr.save(exe);
+		
+	}
+
+	@Override
+	public void updateExercise(Exercise exe) {
+		exnr.save(exe);
+		
+	}
+
+	@Override
+	public Exercise displayByIdExercise(int id) {
+		return exnr.findById(id).get();
+	}
+
+	@Override
+	public void deleteExerciseById(int id) {
+		exnr.deleteById(id);
+		
+	}
+
+	@Override
+	public List<Diet> displayAlldataDiet() {
+		return dinr.findAll();
+	}
+
+	@Override
+	public void InsertDiet(Diet det) {
+		dinr.save(det);
+		
+	}
+
+	@Override
+	public void updateDiet(Diet det) {
+		dinr.save(det);
+		
+	}
+
+	@Override
+	public Diet displayByIdDiet(int id) {
+		return dinr.findById(id).get();
+	}
+
+	@Override
+	public void deleteDietById(int id) {
+		dinr.deleteById(id);
+		
+	}
+    
+    
+    
+
+}

@@ -1,0 +1,19 @@
+
+
+<p>login page!</p>
+<form #loginForm="ngForm" (ngSubmit)="loginDetails(loginForm.value)" novalidate>
+
+<div *ngIf="id.errors?.['required'] && id.touched ">Pls enter id</div><br>
+<div *ngIf="id.errors?.['minlength'] && id.touched">pls enter atleast 1 digit and maximum length of id is 3</div>
+id:<input type="text" placeholder="enter name" #id="ngModel" name="id" ngModel
+ required minlength="1" maxlength="8"/><br><br>
+
+ <div *ngIf="password.errors?.['required'] && password.touched ">Pls enter password</div><br>
+ <div *ngIf="password.errors?.['minlength'] && password.touched">pls enter atleast 5 characters and 
+    maximum  length of password is 8</div>
+
+Password:<input type="password" #password="ngModel" name="password" placeholder="enter password" ngModel 
+required minlength="1" maxlength="8"/>
+<br><br>
+<input type="submit" value="Login">
+</form>

@@ -1,0 +1,11 @@
+package com.example.demo.persistance;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.demo.entity.User_Registration;
+
+public interface RegistrationJpa extends JpaRepository<User_Registration, Integer> {
+        
+	
+	
+}

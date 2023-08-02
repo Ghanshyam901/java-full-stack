@@ -1,0 +1,150 @@
+package com.example.demo.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Registration")
+public class User_Registration {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@Column(name="id")
+	private int id;
+	@Column(name="first_name")
+	private String firstName;
+	@Column(name="last_name")
+	private String lastName;
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="contact_number")
+	private long contact_number;
+	
+	@Column(name="is_admin")
+	private boolean is_admin=false;
+	
+	@Column(name="weight")
+	private int weight;
+	
+	@Column(name="height")
+	private float height;
+	
+	@Column(name="blood_group")
+	private String blood_group;
+	
+    @Column(name="password")
+    private String password;
+
+	public User_Registration() {
+		
+	}
+
+	public User_Registration(int id, String firstName, String lastName, String email, long contact_number,
+			boolean is_admin, int weight, float height, String blood_group, String password) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.contact_number = contact_number;
+		this.is_admin = is_admin;
+		this.weight = weight;
+		this.height = height;
+		this.blood_group = blood_group;
+		this.password = password;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public long getContact_number() {
+		return contact_number;
+	}
+
+	public void setContact_number(long contact_number) {
+		this.contact_number = contact_number;
+	}
+
+	public boolean isIs_admin() {
+		return is_admin;
+	}
+
+	public void setIs_admin(boolean is_admin) {
+		this.is_admin = is_admin;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public float getHeight() {
+		return height;
+	}
+
+	public void setHeight(float height) {
+		this.height = height;
+	}
+
+	public String getBlood_group() {
+		return blood_group;
+	}
+
+	public void setBlood_group(String blood_group) {
+		this.blood_group = blood_group;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User_Registration [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+				+ email + ", contact_number=" + contact_number + ", is_admin=" + is_admin + ", weight=" + weight
+				+ ", height=" + height + ", blood_group=" + blood_group + ", password=" + password + "]";
+	}
+	
+}

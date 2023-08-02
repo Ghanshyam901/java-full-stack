@@ -1,0 +1,78 @@
+body{
+    background-color: rgb(176, 176, 176);
+}
+
+.cont1{
+    background-color: rgb(239, 232, 232);
+    padding-bottom: 23%;
+}
+.imgl{
+    width: 35%;
+    margin-top: 2%;
+    margin-left: 20%;
+    padding-left: 10%;
+    padding-top: 2%;
+  
+}
+.cont2{
+    padding-top: 1%;
+    background-color: rgb(24, 116, 187);
+    padding-bottom: 1%;
+}
+.input1{
+    cursor: pointer;
+    margin-left: 4%;
+    width: 25%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+}
+.btn1{
+    cursor: pointer;
+    margin-left: 2%;
+    width: 9%;
+    height: 40px;
+    border:20px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgba(16, 22, 141, 0.796);
+    color: white;
+}
+.list{
+    list-style: none;
+    color: black;
+    padding-top: 10%;
+    /* text-align:center; */
+}
+.list1{
+    margin-top: 40px;
+}
+li{
+    margin-top: 10px;
+}
+
+.aclass{
+    margin-top: 20px;
+    color:rgb(109, 105, 105);
+}
+.footera{
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+  
+}
+
+.list2{
+    /* margin-top: 40px; */
+    cursor: pointer;
+    margin-left: 200px;
+    text-align: center;
+}
+.table2{
+    margin-left: 45%;
+    margin-bottom: 1%;
+}
+
+::placeholder {
+    color: rgb(142, 137, 137);
+    padding-left: 10px;
+  }

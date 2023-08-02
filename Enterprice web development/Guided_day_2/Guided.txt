@@ -1,0 +1,108 @@
+**********HTML************************
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form</title>
+<style >
+	.center {
+  		margin-left: auto;
+  		margin-right: auto;
+	}
+</style>
+
+</head>
+<body>
+<form action="Register_servlet" method="post">
+<h1 style="text-align: center; " >Employee Registration</h1>
+	<table class = "center" ">
+	<tr>
+		<td>empID</td>
+		<td><input type="text" name="e_id" required  ></td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td><input type="text" name="e_name" required></td>
+	</tr>
+	<tr>
+		<td>Salary</td>
+		<td><input type="text" name="e_salary" required></td>
+	</tr>
+	<tr>
+		<td>Gender</td>
+		<td><input type="text" name="e_gender" required></td>
+	</tr>
+	<tr>
+		<td>Email-Id</td>
+		<td><input type="email" name="e_email" required></td>
+	</tr>
+	<tr>
+		<td>Password</td>
+		<td><input type="password" name="e_pwd" required></td>
+	</tr>
+	<tr>
+		<td><input type="submit" value="Register"></td>
+	</tr>
+</table>	
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+************************************* Servlet code**************
+package day_02_guided;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Register_servlet
+ */
+@WebServlet("/Register_servlet")
+public class Register_servlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Register_servlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doGet(request, response);
+		PrintWriter out = response.getWriter();
+		out.write("<body style=\"background-color: lightpink\"> ");
+		out.write("<h1>Registration Success!!!</h1>");
+		out.write("Enter login id <input type=\"email\"> <br>");
+		out.write("Enter Password <input type=\"password\"><br>");
+		out.write("<input type=\"submit\" value=\"Login\" >");
+	}
+
+}
